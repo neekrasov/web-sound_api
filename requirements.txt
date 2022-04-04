@@ -1,0 +1,7 @@
+djangorestframework
+django
+Pillow
+drf_yasg
+requests
+environs
+psycopg2
