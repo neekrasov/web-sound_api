@@ -5,3 +5,5 @@ drf_yasg
 requests
 environs
 psycopg2
+google-auth
+PyJWT
