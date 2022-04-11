@@ -1,9 +1,9 @@
-djangorestframework
-django
+djangorestframework~=3.13.1
+django~=4.0.3
 Pillow
 drf_yasg
 requests
-environs
+environs~=9.5.0
 psycopg2
-google-auth
-PyJWT
+google-auth~=2.6.3
+PyJWT~=2.3.0

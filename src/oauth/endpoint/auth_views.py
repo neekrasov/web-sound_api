@@ -9,13 +9,13 @@ from ..services.google import check_google_auth
 
 def google_login(request):
     """ Страница входа через Google """
-    return render(request, "oauth/google_login.html")
+    return render(request, 'oauth/google_login.html')
 
 
 @api_view(["POST"])
 def google_auth(request):
     """ Подтверждение авторизации через Google"""
-    google_data = serializers.GoogleAuth(data=request.data)
+    google_data = serializers.GoogleAuthSerializer(data=request.data)
     if google_data.is_valid():
         token = check_google_auth(google_data.data)
         return Response(token)

@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Google Auth</title>
     <meta name='google-signin-client_id'
           content='893022473618-i2soou06e171jle24rc3062apmb647qf.apps.googleusercontent.com'>
 </head>
 <body>
-<div id="my-signin"></div>
+<div id="my-signin2"></div>
 
 <script>
 
@@ -29,7 +29,7 @@
             })
         })
             .then(res => res.json())
-            .then(data => console.log('ID: ' + data.user.id + '\nToken: ' + data.access_token))
+            .then(data => console.log('ID: ' + data.user_id + '\nToken: ' + data.access_token))
     }
 
 
@@ -40,7 +40,7 @@
 
 
     function renderButton() {
-        gapi.signin2.render('my-signin', {
+        gapi.signin2.render('my-signin2', {
             scope: 'profile email',
             width: 200,
             height: 50,
