@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'src.oauth',
+    'src.audio_library',
 
 ]
 
