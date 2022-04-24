@@ -23,11 +23,20 @@ def get_path_upload_cover_album(instance, file_path):
 
 def get_path_upload_track(instance, file_path):
     """ Построение пути к файлу.
-        format: (media)/avatar/user_id/audio.mp3
+        format: (media)/track/user_id/audio.mp3
         instance: User
         file: photo.jpg
     """
     return f'track/user_{instance.user.id}/{file_path}'
+
+
+def get_path_upload_cover_track(instance, file_path):
+    """ Построение пути к файлу.
+        format: (media)/track/user_id/photo.jpg
+        instance: User
+        file: photo.jpg
+    """
+    return f'track/cover/user_{instance.user.id}/{file_path}'
 
 
 def get_path_upload_cover_playlist(instance, file_path):
