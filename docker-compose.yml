@@ -1,0 +1,47 @@
+version: '3.8'
+
+
+services:
+  db:
+    image: postgres:14-alpine
+    container_name: sound_web_db
+    networks:
+      - default
+    volumes:
+      - sound_audio_library_postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+
+
+  web:
+    build: ./
+    container_name: sound_web
+    restart: always
+    command: bash entrypoint.sh
+    volumes:
+      - .:/usr/src/sound_app
+      - ./static:/usr/src/sound_app/static
+      - ./media:/usr/src/sound_app/media
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  nginx:
+    build: ./nginx
+    container_name: sound_web_nginx
+    restart: on-failure
+    ports:
+      - 80:80
+    volumes:
+      - ./static:/static
+      - ./media:/media
+    depends_on:
+      - web
+
+volumes:
+  sound_audio_library_postgres_data:
